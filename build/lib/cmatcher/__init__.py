@@ -137,8 +137,8 @@ class CMatcher:
         )
         df2 = self.df.loc[
             self.df["final_value"] > self.df.final_value.max() * lum_dif / 100
-        ]
-        df2["color_distance"] = self.df.apply(
+        ].copy()
+        df2["color_distance"] = df2.apply(
             lambda x: CMatcher._cor_distance((x.H, x.S, x.V), hsv_searched_color),
             axis=1,
         )
